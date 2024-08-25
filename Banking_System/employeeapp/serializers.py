@@ -3,6 +3,8 @@ from employeeapp.models import Department, Employee, EmployeeDetails, Project, T
 from datetime import date, timedelta
 
 # Here create Department Serializer with inherit Model Serializer
+class Carmpany(models.Model):
+    pass
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model=Department
