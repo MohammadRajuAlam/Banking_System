@@ -341,7 +341,7 @@ class AccountSerializer(serializers.ModelSerializer):
         errors = {}
         bank_name = data.get('bank_name', None)
         if bank_name is not None:
-            bank_name = bank_name.strip()
+            bank_name = bank_name.strip()  #   PNB   
             if not all(word.isalpha() for word in bank_name.split()):
                 errors ['bank_name']='Bank name should be character.'
         

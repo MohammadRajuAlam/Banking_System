@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-bank/', include('bankapp.urls')),
     path('api-empl/', include('employeeapp.urls')),
+    path('auth', include('rest_framework.urls'), name="SessionAuthentication"),
 ]

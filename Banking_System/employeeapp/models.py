@@ -15,7 +15,10 @@ class SoftDeleteModel(models.Model):
         self.is_deleted = True
         self.save()
     class Meta:
-        abstract = True 
+        abstract = True
+        
+class Author(models.Model):
+    pass
          
 # Here I am creating Office Management System Models
 class Department(SoftDeleteModel):
@@ -226,3 +229,6 @@ class Salary(SoftDeleteModel):
         if not self.pk:  # If the object is being created, not updated
             self.deposit()
         super(Salary, self).save(*args, **kwargs)
+        
+class Student(models.Model):
+    pass

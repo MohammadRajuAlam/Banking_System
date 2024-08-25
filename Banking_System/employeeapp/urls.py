@@ -78,6 +78,6 @@ urlpatterns = [
     path('salary/<int:pk>/',SalaryRetrieveUpdateDestroyAPIView.as_view(), name='Specific-Salary-list'),
     # Custome URLs to get single/All Salary of a specific Employee
     path('employees/<int:pk>/salary/', EmployeeSalaryAPIView.as_view(), name='Specific-Employee-All-salary'),
-    path('employees/<int:pk>/salary/<int:sal_pk>/', EmployeeSalaryAPIView.as_view(), name='Specific-Employee-All-salary')
+    path('employees/<int:pk>/salary/<int:sal_pk>/', EmployeeSalaryAPIView.as_view(), name='Specific-Employee-All-salary'),
     
 ]

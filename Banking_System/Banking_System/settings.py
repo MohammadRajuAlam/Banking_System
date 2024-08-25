@@ -135,13 +135,25 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Here Writing Blobal Authentication using DRF Authentication
+# Here We Writing Global Authentication using DRF Authentication, permission
+
+# 1) Here we are writing Globaly BasicAuthentication
+'''
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.BasicAuthentication',
+        ],
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+'''
+# 2) Here we are writing Globaly SessionAuthentication Note when you write global sessionAuthentication then you have create an URL in main (Project level URL) see lines 24
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication'
+        'rest_framework.authentication.SessionAuthentication',
         ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-        ],
-    
-}
+     ],
+ }

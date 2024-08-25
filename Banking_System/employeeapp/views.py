@@ -4,8 +4,8 @@ from rest_framework import generics, status
 from rest_framework.views import APIView
 from employeeapp.models import  Department, Employee, EmployeeDetails, Project, Task, Attendance, Account, Salary
 from employeeapp.serializers import DepartmentSerializer, EmployeeSerializer, EmployeeDetailsSerializer, ProjectSerializer, TaskSerializer, AttendanceSerializer, AccountSerializer, SalarySerializer
-# from rest_framework.authentication import BasicAuthentication
-# from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 
 # Here Creating Generics APIViews for all models
 
@@ -13,10 +13,16 @@ from employeeapp.serializers import DepartmentSerializer, EmployeeSerializer, Em
 class DepartmentListCreateAPIView(generics.ListCreateAPIView): # Create Department API for Get all and Post
     queryset=Department.objects.all()
     serializer_class=DepartmentSerializer
+    # authentication_classes = [BasicAuthentication]  # Here using BasicAuthentication and permission a particular API # If you want set globally (for all APIs) BasicAuth and permission write the code in setting.py (see lines 139) we setup blobally it
+    # permission_classes = [IsAuthenticated]
+    #authentication_classes = [SessionAuthentication]
+    #permission_classes = [IsAuthenticated]
     
 class DepartmentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView): # Create Department API for single Get,put, patch and delete
     queryset=Department.objects.all()
     serializer_class=DepartmentSerializer
+    #authentication_classes = [BasicAuthentication]
+    #permission_classes = [IsAdminUser]
     
     #???????????????????????????????????????????
     # Here write custome message inside generic if ID doesn't exit then show the message
@@ -25,6 +31,9 @@ class DepartmentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIVi
 class EmployeeListCreateAPI(generics.ListCreateAPIView):
     queryset=Employee.objects.all()
     serializer_class=EmployeeSerializer
+    #authentication_classes = [BasicAuthentication]
+    #permission_classes = [AllowAny]  # Here We are overriding using global BasicAuthentication and permission a particular API here no need Auth and permission Any user access this APIs bcz we use AllowAny
+    #permission_classes = [IsAdminUser] # When we use IsAdminUser Only Is_Staff can access this API
     
 class EmployeeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Employee.objects.all()
