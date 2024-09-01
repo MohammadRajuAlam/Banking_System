@@ -22,7 +22,7 @@ class BankAPI(APIView):
                 return Response({"response":{"status":404,"error":"Id doesn't exist"}}, status=status.HTTP_404_NOT_FOUND)    
         queryset=Bank.objects.all()
         serializer=BankSerializer(queryset, many=True)
-        return Response({"response":{"status":200,"payload":serializer.data}}, status=status.HTTP_200_OK)
+        return Response({"response":{"status":200,"PAYLOAD":serializer.data}}, status=status.HTTP_200_OK)
         
     def post(self, request, format=None):
         serializer=BankSerializer(data=request.data)

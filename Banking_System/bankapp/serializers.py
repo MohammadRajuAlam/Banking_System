@@ -208,7 +208,7 @@ class BranchSerializer(serializers.ModelSerializer):
         # validate country    
         country=data.get('country', None)
         if country is not None:
-            country=country.strip()
+            country=country.strip()   
             if not all(word.isalpha() for word in country.split()):
                 errors['country']='Country name must be Character'
         

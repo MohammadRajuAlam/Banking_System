@@ -149,11 +149,11 @@ REST_FRAMEWORK = {
 }
 '''
 # 2) Here we are writing Globaly SessionAuthentication Note when you write global sessionAuthentication then you have create an URL in main (Project level URL) see lines 24
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-     ],
- }
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.SessionAuthentication',
+#         ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#      ],
+#  }
